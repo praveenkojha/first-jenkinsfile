@@ -1,14 +1,23 @@
 pipeline {
-    agent any
-    options {
-        timeout(time: 1, unit: 'HOURS')
-    }
-    
-    stages {
-        stage ('checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/praveenkojha/first-jenkinsfile.git'
-            }
-        }
-    }
+  agent any
+  parameters {
+    choice( name: "BuildType", 
+	        choices: "Snapshot\nRelease", 
+	        description: "Indicate whether to build a snapshot or release version"
+		)
+  }
+  
+  options {
+    timeout(time: 1,
+	unit: 'HOURS')  
+  }
+  
+  stages {
+    stage('checkout') {
+	  agent any
+	  steps {
+	    git branch: 'master', url: 'https://github.com/praveenkojha/first-jenkinsfile.git'
+	  }
+	}
+  }
 }
