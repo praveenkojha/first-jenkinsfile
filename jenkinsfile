@@ -16,7 +16,7 @@ pipeline {
     stage('checkout') {
 	  agent any
 	  steps {
-	    echo "hello World"
+	    git branch: 'main', url: 'https://github.com/praveenkojha/first-jenkinsfile.git'
 	  }
 	}
   }
