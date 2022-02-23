@@ -8,8 +8,7 @@ pipeline {
   }
   
   options {
-    timeout(time: 1,
-	unit: 'HOURS')  
+    timeout(time: 1, unit: 'HOURS')  
   }
   
   stages {
@@ -17,6 +16,12 @@ pipeline {
 	  agent any
 	  steps {
 	    git branch: 'main', url: 'https://github.com/praveenkojha/first-jenkinsfile.git'
+	  }
+	}
+	
+	stage (create a jar) {
+	  steps {
+	  echo "creted jar in /target folder"
 	  }
 	}
   }
