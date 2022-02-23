@@ -19,9 +19,10 @@ pipeline {
 	  }
 	}
 	
-	stage (create a jar) {
+	stage ('create a jar') {
 	  steps {
 	  echo "creted jar in /target folder"
+	  echo "creted jar in Done"
 	  }
 	}
   }
